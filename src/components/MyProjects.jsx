@@ -73,7 +73,7 @@ function MyProjects() {
       id: 7,
       name: 'Portfolio Website',
       img: proj7,
-      demoLink: 'https://effervescent-axolotl-97df83.netlify.app/',
+      demoLink: 'https://peppy-lamington-de94c4.netlify.app/',
       category: 'reacttailwind',
       des: "My portfolio website was created by ReactJs and Tailwind css, it's a landing page website, contains «AboutMe» section, «MyProjects» section, «MySkills» section, and «ContactMe» section."
 
