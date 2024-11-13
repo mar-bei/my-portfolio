@@ -20,7 +20,7 @@ function Hero() {
             <a href='https://www.linkedin.com/in/marwa-beihaqi-918028293?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BuW787BWwSWmvSewMOufRDg%3D%3D' target="_blank"  data-aos="fade-left" data-aos-duration="600" className="hover:scale-110"><FaLinkedinIn /></a>
             <a href="https://www.instagram.com/marwa__beihaqi/" target="_blank" data-aos="fade-left" data-aos-duration="800" className="hover:scale-110"><FaInstagram/></a>
             <a href="https://www.facebook.com/profile.php?id=61553584292295" target="_blank"  data-aos="fade-left" data-aos-duration="900" className="hover:scale-110"><FaMeta /></a> 
-            <a href="https://github.com/marwabei" target="_blank" data-aos="fade-left" data-aos-duration="1000" className="hover:scale-110"><FaGithub /></a>
+            <a href="https://github.com/mar-bei" target="_blank" data-aos="fade-left" data-aos-duration="1000" className="hover:scale-110"><FaGithub /></a>
             </div>
     </div>
   )
