@@ -4,15 +4,19 @@ import proj3 from './imgs/project3.png';
 import proj4 from './imgs/project4.png';
 import proj5 from './imgs/project5.png';
 import proj6 from './imgs/project6.png';
-import proj7 from './imgs/project7.png';
-// import mixitup from 'mixitup';
-
-import React, { useState, useEffect } from 'react';
+import proj7 from './imgs/project7.PNG';
+import React from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
 import 'swiper/css';
+import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
-import { Autoplay, EffectCoverflow } from 'swiper/modules';
+
+// import required modules
+import { EffectCoverflow, Autoplay } from 'swiper/modules';
+
 
 function MyProjects() {
   
@@ -88,95 +92,66 @@ function MyProjects() {
       slidesPerView: 3,
     }
   }
-  const [project,setProjects] = useState(projects_1);
-  const filterProjects = (cat) => {
-    const newProjectList = projects_1.filter(i => i.category === cat);
-    setProjects(newProjectList);
-  }
 
 
-  const buttons = document.querySelectorAll('button');
-  buttons.forEach(e => {
-    e.onclick = () => {
-      buttons.forEach(i => i.classList.remove('active'));
-      e.classList.add('active');
-    }
-  })
-
+ 
   return (
-    <div id='projects' className='px-3 pt-20 flex flex-col gap-5 overflow-hidden lg:px-16'>
-        <div className='flex flex-col gap-4'>
-            <div>
-                <h3 data-aos="fade-right" data-aos-duration="600" className='text-3xl font-bold border-b-[5px] pb-1 border-solid w-fit pr-1 rounded-r-lg'>My Projects</h3>
-            </div>
-            <div data-aos="fade-right" data-aos-duration="900" className='flex gap-3 items-center'>
-                <button className='active bg-transparent border-2 border-solid border-white px-3 py-1 rounded-lg font-bold' onClick={() => setProjects(projects_1)}>All</button>
-                <button className='bg-transparent border-2 border-solid border-white px-3 py-1 rounded-lg font-bold' onClick={() => filterProjects('htmlcss')}>Html & Css</button>
-                <button className='bg-transparent border-2 border-solid border-white px-3 py-1 rounded-lg font-bold' onClick={() => filterProjects('reacttailwind')}>React & Tailwind</button>
-            </div>
-        </div>
-        
-      
-          <Swiper
-            breakpoints={breakpoint}
-            slidesPerView={1}
-            spaceBetween={30}
-            speed={3000}
-            effect={'coverflow'}
-            grabCursor={true}
-            centeredSlides={true}
-            autoplay={{delay: 1}}            
-            coverflowEffect={{
-              rotate: 50,
-              stretch: 0,
-              depth: 100,
-              modifier: 1,
-              slideShadows: true,
-            }}
-            modules={[Autoplay, EffectCoverflow]}
-            className='ease-linear w-[100%] flex justify-center  items-center lg:mt-7'
-          >
-            {project.map(item => (
-            <SwiperSlide className='lg:py-1' key={item.id} >
-              <div data-aos='fade-left' data-aos-duration='1000' className='w-[100%] lg:w-[100%] bg-[#2C5364] flex flex-col gap-2 p-3 rounded-lg shadow-3xl border-2 border-solid z-0 py-2'>
-                <div>
-                  <img className='w-[100%] rounded-lg' src={item.img} alt={item.name} />
-                </div>
-                <p className='text-xl font-extrabold tracking-wider'>{item.name}</p>
-                <p className='text-lg lg:text-base font-semibold'>{item.des}</p>
-                <a target="_blank" className='w-[100%] flex justify-center items-center bg-transparent border-2  py-1 mt-2 font-bold rounded-full lg:hover:bg-white lg:hover:text-black' href={item.demoLink} >Demo</a>
+    <div className='lg:mt-[17em] mt-[10em]' id='projects'>
+      <div>
+        <h3 data-aos="fade-right" data-aos-duration="600" className='text-3xl font-bold border-b-[5px] pb-1 border-solid w-fit pr-1 rounded-r-lg ml-[1em] lg:ml-[7em]'>My_Projects</h3>
+      </div>
+
+
+        <Swiper
+        effect={'coverflow'}
+        grabCursor={true}
+        centeredSlides={true}
+        slidesPerView={1}
+        loop={true}
+        speed={1000}
+        breakpoints={breakpoint}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        coverflowEffect={{
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: true,
+        }}
+        modules={[EffectCoverflow, Autoplay]}
+        className="w-[90%] lg:w-[80%] mt-[2em] lg:mt-[3em]"
+      >
+        {projects_1.map((p,i) => (
+          <SwiperSlide className="z-[8] lg:w-[50%] bg-gradient-to-r from-black to-purple-800 h-fit pb-7 lg:pb-9 rounded-xl shadow-xl">
+            <div className="flex flex-col gap-5 lg:gap-3 " key={i}>
+              <div>
+                <img className='lg:w-[100%] object-contain rounded-t-xl' src={p.img}/>
               </div>
-            </SwiperSlide>
-            ))}
-            
-            
-          </Swiper>
+              <h3 className='lg:text-2xl text-xl lg:pl-3 lg:pr-5 font-bold' alt="img">{p.name}</h3>
+              <p className="lg:text-lg text-lg pl-3 pr-5 lg:pl-3 lg:pr-5 tracking-wide">{p.des}</p>
+              <a 
+              href={p.demoLink} 
+              target='_blank'
+              className='w-[100%] flex justify-center items-center'>
+                <button 
+                className="w-[90%] py-1 bg-transparent border-2 text-white font-semi-bold rounded-2xl relative hover:bg-white hover:text-purple-950 transition-all duration-[.3s] hover:scale-100 hover:font-bold"
+                >
+                  Demo
+                </button>
+              </a>
+            </div>
+          </SwiperSlide>
           
-          {/* <Swiper
-            breakpoints={breakpoint}
-            slidesPerView={1}
-            spaceBetween={30}
-            speed={3000}
-            autoplay={true}
-            modules={[Autoplay]}
-            className='ease-linear w-[100%] grid grid-cols-3 justify-center  items-center'
-          >
-            {projects_2.map(item => (
-            <SwiperSlide key={item.id} >
-              <div data-aos='fade-left' data-aos-duration='1000' className='w-[100%] bg-[#2C5364] flex flex-col gap-2 p-3 rounded-lg shadow-3xl border-2 border-solid z-0'>
-                <div>
-                  <img className='w-[100%] rounded-lg' src={item.img} alt={item.name} />
-                </div>
-                <p className='text-xl font-extrabold tracking-wider'>{item.name}</p>
-                <p className='text-lg font-semibold'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic voluptas saepe recusandae dolorum ut non culpa perferendis eos corporis natus?</p>
-                <a className='w-[100%] flex justify-center items-center bg-transparent border-2  py-1 mt-2 font-bold rounded-full' href={item.demoLink} target='_blank'>Demo</a>
-              </div>
-            </SwiperSlide>
-            ))}
-            
-            
-          </Swiper> */}
+        ))}
+        
+       
+        </Swiper>
+
     </div>
+   
   )
 }
 

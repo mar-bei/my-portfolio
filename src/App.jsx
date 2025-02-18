@@ -1,20 +1,22 @@
 import './App.css';
 import AboutMe from './components/AboutMe';
 import ContactMe from './components/ContactMe';
+import Education from './components/EducationSec/Education';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import MyProjects from './components/MyProjects';
 import Skills from './components/Skills';
-
-
+import MyProjects from './components/MyProjects';
+import Particle from './Particle';
 function App() {
   return (
-    <div className='bg-gradient-to-b from-[#0F2027] to-[#2C5364] text-white font-["Oswald", sans-serif] h-fit'>
+    <div className='bg-gradient-to-r from-black to-purple-800 text-white font-["Oswald", sans-serif] h-fit'>
+      <Particle id="particles" />
       <Header />
       <Hero />
       <AboutMe />
-      <MyProjects />
+      <Education/>
+      <MyProjects/>
       <Skills/>
       <ContactMe />
       <Footer/>
